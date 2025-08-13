@@ -61,12 +61,9 @@ dev = [
     "mypy>=0.800",
 ]
 
-[tool.setuptools]
-package-dir = {"orpheusdl" = "orpheus"}
-
 [tool.setuptools.packages.find]
-where = ["orpheus"]
-namespaces = false
+where = ["."]
+include = ["orpheusdl*"]
 
 [tool.setuptools.package-data]
 "*" = ["*.json", "*.txt", "*.md"]

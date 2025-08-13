@@ -38,3 +38,8 @@ exclude .tox
 exclude .venv
 exclude venv
 exclude env
+
+# Exclude the old standalone script (replaced by proper CLI entry points)
+exclude orpheus.py
+exclude moduletesting.py
+recursive-exclude legacy *

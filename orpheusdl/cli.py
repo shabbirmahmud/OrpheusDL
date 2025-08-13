@@ -18,9 +18,9 @@ except ImportError:
     # Fall back to absolute imports (when used as script)
     # Add the parent directory to the path so we can import from the package
     sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-    from orpheus.core import Orpheus, orpheus_core_download
-    from orpheus.music_downloader import beauty_format_seconds
-    from orpheus.utils.models import (
+    from orpheusdl.core import Orpheus, orpheus_core_download
+    from orpheusdl.music_downloader import beauty_format_seconds
+    from orpheusdl.utils.models import (
         DownloadTypeEnum, MediaIdentification, SearchResult,
         ModuleFlags, ModuleModes, ManualEnum
     )

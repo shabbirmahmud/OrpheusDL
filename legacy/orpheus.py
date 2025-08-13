@@ -4,8 +4,8 @@ import argparse
 import re
 from urllib.parse import urlparse
 
-from orpheus.core import *
-from orpheus.music_downloader import beauty_format_seconds
+from orpheusdl.core import *
+from orpheusdl.music_downloader import beauty_format_seconds
 
 
 def main():
