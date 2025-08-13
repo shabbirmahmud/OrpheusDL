@@ -1,10 +1,17 @@
 import importlib, json, logging, os, pickle, requests, urllib3, base64, shutil
 from datetime import datetime
 
-from orpheus.music_downloader import Downloader
-from utils.models import *
-from utils.utils import *
-from utils.exceptions import *
+from .music_downloader import Downloader
+try:
+    # Try relative imports first (when used as package)
+    from .utils.models import *
+    from .utils.utils import *
+    from .utils.exceptions import *
+except ImportError:
+    # Fall back to absolute imports (when used as script)
+    from utils.models import *
+    from utils.utils import *
+    from utils.exceptions import *
 
 os.environ['CURL_CA_BUNDLE'] = ''  # Hack to disable SSL errors for requests module for easier debugging
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)  # Make SSL warnings hidden

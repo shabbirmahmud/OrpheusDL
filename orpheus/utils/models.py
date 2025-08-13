@@ -4,7 +4,7 @@ from enum import Flag, auto
 from types import ClassMethodDescriptorType, FunctionType
 from typing import Optional
 
-from utils.utils import read_temporary_setting, set_temporary_setting
+from .utils import read_temporary_setting, set_temporary_setting
 
 
 class Oprinter:  # Could change to inherit from print class instead, but this is fine

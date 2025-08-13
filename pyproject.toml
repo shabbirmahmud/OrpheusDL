@@ -1,0 +1,83 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "orpheusdl"
+version = "1.0.0"
+description = "A modular music archival program"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "OrfiTeam", email = "contact@orfi.dev"},
+]
+maintainers = [
+    {name = "Dniel97", email = "dniel97@example.com"},
+]
+keywords = ["music", "downloader", "archival", "modular"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Multimedia :: Sound/Audio",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+requires-python = ">=3.7"
+dependencies = [
+    "defusedxml>=0.7.1",
+    "protobuf==3.15.8",
+    "pycryptodomex>=3.10.1",
+    "requests>=2.25.1",
+    "Pillow>=8.2.0",
+    "tqdm>=4.60.0",
+    "mutagen>=1.45.1",
+    "ffmpeg-python>=0.2.0",
+    "m3u8>=2.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/OrfiTeam/OrpheusDL"
+Repository = "https://github.com/OrfiTeam/OrpheusDL"
+Issues = "https://github.com/OrfiTeam/OrpheusDL/issues"
+Documentation = "https://github.com/OrfiTeam/OrpheusDL/blob/main/README.md"
+
+[project.scripts]
+orpheus = "orpheusdl.cli:main"
+orpheusdl = "orpheusdl.cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "pytest-cov>=2.0",
+    "black>=21.0",
+    "flake8>=3.8",
+    "mypy>=0.800",
+]
+
+[tool.setuptools]
+packages = ["orpheusdl", "orpheusdl.modules", "orpheusdl.utils"]
+
+[tool.setuptools.package-dir]
+orpheusdl = "orpheus"
+
+[tool.setuptools.package-data]
+orpheusdl = ["*.json", "*.txt"]
+"orpheusdl.modules" = ["**/*.py", "**/*.json", "**/*.txt"]
+
+[tool.black]
+line-length = 120
+target-version = ['py37']
+
+[tool.mypy]
+python_version = "3.7"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true

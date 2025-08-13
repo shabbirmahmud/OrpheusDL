@@ -6,10 +6,17 @@ from time import strftime, gmtime
 
 from ffmpeg import Error
 
-from orpheus.tagging import tag_file
-from utils.models import *
-from utils.utils import *
-from utils.exceptions import *
+from .tagging import tag_file
+try:
+    # Try relative imports first (when used as package)
+    from .utils.models import *
+    from .utils.utils import *
+    from .utils.exceptions import *
+except ImportError:
+    # Fall back to absolute imports (when used as script)
+    from utils.models import *
+    from utils.utils import *
+    from utils.exceptions import *
 
 
 def beauty_format_seconds(seconds: int) -> str:

@@ -13,8 +13,14 @@ from mutagen.mp4 import MP4Tags
 from mutagen.oggopus import OggOpus
 from mutagen.oggvorbis import OggVorbis
 
-from utils.exceptions import *
-from utils.models import ContainerEnum, TrackInfo
+try:
+    # Try relative imports first (when used as package)
+    from .utils.exceptions import *
+    from .utils.models import ContainerEnum, TrackInfo
+except ImportError:
+    # Fall back to absolute imports (when used as script)
+    from utils.exceptions import *
+    from utils.models import ContainerEnum, TrackInfo
 
 # Needed for Windows tagging support
 MP4Tags._padding = 0
